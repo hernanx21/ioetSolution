@@ -37,7 +37,5 @@ jobs:
       - uses: actions/setup-node@v2 
         with: 
           node-version: "16"
-      - name: Install Dependencies
-        run: npm ci
       - name: Run solution
         run: npm run start
