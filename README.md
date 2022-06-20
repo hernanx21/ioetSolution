@@ -1,4 +1,4 @@
-[![Deploying Pipeline](https://github.com/hernanx21/iotSolution/actions/workflows/pipeline.yml/badge.svg)](https://github.com/hernanx21/iotSolution/actions/workflows/pipeline.yml)
+[![Deploying Pipeline](https://github.com/hernanx21/ioetSolution/actions/workflows/pipeline.yml/badge.svg)](https://github.com/hernanx21/ioetSolution/actions/workflows/pipeline.yml)
 
 
 The company ACME offers their employees the flexibility to work the hours they want. But due to some external circumstances they need to know what employees have been at the office within the same time frame
