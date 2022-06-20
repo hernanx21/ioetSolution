@@ -1,0 +1,42 @@
+name: Deployment of solution
+
+on: 
+  push:
+    branches: [master]  
+
+jobs:
+  avoid_redundant_deployment:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Check if the solution is already deployed
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+  test:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with: 
+          fetch-depth: 0
+      - uses: actions/setup-node@v2 
+        with: 
+          node-version: "16"
+      - name: Install Dev dependencies
+        run: npm ci
+      - name: Test
+        run: npm test
+  
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with: 
+          fetch-depth: 0
+      - uses: actions/setup-node@v2 
+        with: 
+          node-version: "16"
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run solution
+        run: npm run start

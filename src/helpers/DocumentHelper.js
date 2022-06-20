@@ -1,7 +1,7 @@
-class DocumentRepository {
+class DocumentHelper {
     constructor() {
-        this.result = [];
-        this.result2 = [];
+        this.employees = [];
+        this.counter = [];
         this.finalMessage = ''
     }
 
@@ -16,14 +16,14 @@ class DocumentRepository {
             if(i != index) {
                 let userData = this.getUserSchedule(userSchedule[i]);
                 if(this.validateRedundancy(userData, user)) {
-                    this.result.push(user[0] + '-' + userData[0]);
+                    this.employees.push(user[0] + '-' + userData[0]);
                     this.setCount(user[1], userData[1]);
                 }
             }
         }
     
         if (index === 0){
-            return this.getResults(this.result, this.result2);
+            return this.getResult(this.employees, this.counter);
         }
         
         return this.iterateOverSchedule(userSchedule, index - 1);
@@ -42,11 +42,11 @@ class DocumentRepository {
 
     validateRedundancy = (currentUser, lastUser) => {
         let admit = true;
-        if(this.result.length === 0) 
+        if(this.employees.length === 0) 
             return admit
     
-        for(let i = 0; i < this.result.length; i++) {
-            let names = this.result[i].split('-');
+        for(let i = 0; i < this.employees.length; i++) {
+            let names = this.employees[i].split('-');
             if((names[0] === currentUser[0] || names[0] === lastUser[0]) && (names[1] === currentUser[0] || names[1] === lastUser[0])) {
                 admit = false;
             }
@@ -76,7 +76,7 @@ class DocumentRepository {
             }
         }
     
-        this.result2.push(counter);
+        this.counter.push(counter);
     }
 
     splitHours = (period) => {
@@ -89,10 +89,10 @@ class DocumentRepository {
         return Hours;
     }
 
-    getResults = (result, result2) => {
-        for(let i = 0; i < result2.length; i++) {
-            if(result2[i] > 0)
-                this.finalMessage += `${result[i]}: ${result2[i]}\n`;
+    getResult = (employees, counter) => {
+        for(let i = 0; i < counter.length; i++) {
+            if(counter[i] > 0)
+                this.finalMessage += `${employees[i]}: ${counter[i]}\n`;
         }
     
         return this.finalMessage;
@@ -100,4 +100,4 @@ class DocumentRepository {
 }
 
 
-module.exports = { DocumentRepository };
+module.exports = { DocumentHelper };

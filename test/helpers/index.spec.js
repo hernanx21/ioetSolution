@@ -1,6 +1,6 @@
-const { DocumentRepository } = require('../../src/helpers');
+const { DocumentHelper } = require('../../src/helpers/DocumentHelper');
 
-const document = new DocumentRepository();
+const document = new DocumentHelper();
 
 describe('ioetSolutionTests', () => {
     describe('functions to test', ()=> {

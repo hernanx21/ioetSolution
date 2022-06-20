@@ -1,11 +1,8 @@
 const { Document } = require('./entity/Document');
-const { DocumentRepository } = require('./helpers');
+const { DocumentHelper } = require('./helpers/DocumentHelper');
 const fs = require('fs');
-const events = require('events');
 
-const eventEmitter = new events.EventEmitter();
-const document = new Document(new DocumentRepository(), eventEmitter);
+const document = new Document(new DocumentHelper(), fs);
 
-fs.readFile(`${process.cwd()}/scheduleData.txt`, document.readDocument);
-
-eventEmitter.addListener('connection', (res) => {console.log(res)});
+document.run();
+console.log(document.getResult())

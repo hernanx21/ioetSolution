@@ -1,23 +1,30 @@
 class Document {
-    constructor(documentRepository, emitter) {
-        this.result = 'algo';
-        this.err = '';
+    constructor(DocumentHelper, fs) {
+        this.result = '';
+        this.err = false;
         this.data = '';
-        this.emitter = emitter;
-        this.documentRepository = documentRepository;
+        this.documentHelper = DocumentHelper;
+        this.fs = fs;
+    }
+
+    run = () => {
+        this.readDocument(this.err, this.fs.readFileSync(`${process.cwd()}/scheduleData.txt`, 'utf8'))
     }
 
     readDocument = (err, data) => {
-        if (err) throw err;
+        if (err) throw 'something went wrong';
         const scheduleData = data.toString();
     
         let userSchedule = scheduleData.split('\n');
-        this.setResult(this.documentRepository.iterateOverSchedule(userSchedule, userSchedule.length - 1));
-        this.emitter.emit('connection', this.result);
+        this.setResult(this.documentHelper.iterateOverSchedule(userSchedule, userSchedule.length - 1));
     }
 
     setResult = (result) => {
         this.result = result;
+    }
+
+    getResult = () => {
+        return this.result;
     }
 }
 
