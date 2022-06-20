@@ -21,11 +21,11 @@ ASTRID=MO10:00-12:00,TH12:00-14:00,SU20:00-21:00
 OUTPUT:
 RENE-ASTRID: 3
 
-#Architecture
+# Architecture
 
 The Architecture approach is based on a clean architecture, it tries to separate entities, use cases, controllers, and so on. 
 
-#Approach and Methodology
+# Approach and Methodology
 
 The solution was made by separating the different functionalities based on the problem, having the Document class which was in charge to read, process and print the answer of the data from 'scheduleData.txt' file stored in the root of the project.
 
@@ -40,3 +40,13 @@ The setCount method pushes the number of coincidential schedules for the pairs g
 The splitHours method, as it name says, it isolates the hours of a period given in order to be validated.
 
 And finally we got a getter, getResult, that returns the final message to be printed on screen -console-.
+
+# How to run the solution locally
+
+In order to run it Locally you should consider the following steps:
+    1.- Clone this github repository with: git clone https://github.com/hernanx21/iotSolution.git
+    2.- Install test dependencies by typing npm install command.
+    3.- To run Tests, type npm run test command.
+    4.- To run the solution, type npm run start.
+
+The solution have no project dependencies, so, if you don't want to test the functionalities first, just avoid step 2.
