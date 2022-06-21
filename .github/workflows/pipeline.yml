@@ -1,8 +1,9 @@
 name: Deployment of solution
 
 on: 
-  push:
-    branches: [master]  
+  pull_request:
+    branches: [ master ]
+    types: [ synchronize, closed ]
 
 jobs:
   avoid_redundant_deployment:
@@ -34,8 +35,10 @@ jobs:
       - uses: actions/checkout@v2
         with: 
           fetch-depth: 0
-      - uses: actions/setup-node@v2 
-        with: 
-          node-version: "16"
-      - name: Run solution
-        run: npm run start
+      - name: Push to Docker Hub
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image: hernanx21/ioet-solution
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }} 
