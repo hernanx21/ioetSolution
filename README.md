@@ -44,7 +44,7 @@ And finally we got a getter, getResult, that returns the final message to be pri
 # How to run the solution locally
 
 In order to run it Locally you should consider the following steps:
-    1.- Clone this github repository with: git clone https://github.com/hernanx21/iotSolution.git
+    1.- Clone this github repository with: git clone https://github.com/hernanx21/ioetSolution.git
     2.- Install test dependencies by typing npm install command.
     3.- To run Tests, type npm run test command.
     4.- To run the solution, type npm run start.
