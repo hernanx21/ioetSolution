@@ -50,3 +50,9 @@ In order to run it Locally you should consider the following steps:
     4.- To run the solution, type npm run start.
 
 The solution have no project dependencies, so, if you don't want to test the functionalities first, just avoid step 2.
+
+In case you want to run the solution locally with docker:
+
+    1.- Type docker pull hernanx21/ioet-solution-public-repo:master-42924bb in your terminal
+    2.- Then type docker images, to see our image id
+    2.- And, when it is downloaded, type docker run <image_id> to see the result.
