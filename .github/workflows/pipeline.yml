@@ -37,7 +37,7 @@ jobs:
       - name: Push to Docker Hub
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
-          image: hernanx21/ioet-solution:latest
+          image: hernanx21/ioet-solution
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }} 
