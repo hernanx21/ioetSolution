@@ -1,8 +1,9 @@
 name: Deployment of solution
 
 on: 
-  push:
-    branches: [ioetDockerSolution]
+  pull_request:
+    branches: [ master ]
+    types: [ synchronize, closed ]
 
 jobs:
   avoid_redundant_deployment:
