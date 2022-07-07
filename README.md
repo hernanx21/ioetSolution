@@ -1,6 +1,6 @@
 [![Deploying Pipeline](https://github.com/hernanx21/ioetSolution/actions/workflows/pipeline.yml/badge.svg)](https://github.com/hernanx21/ioetSolution/actions/workflows/pipeline.yml)
 
-![alt text](https://github.com/hernanx21/ioetSolution/master/architecture.png?raw=true)
+![alt text](https://github.com/hernanx21/ioetSolution/blob/master/architecture.png?raw=true)
 
 The company ACME offers their employees the flexibility to work the hours they want. But due to some external circumstances they need to know what employees have been at the office within the same time frame
 The goal of this exercise is to output a table containing pairs of employees and how often they have coincided in the office.
